@@ -5,4 +5,4 @@ from .models import Post
 
 class BlogListView(ListView):
     model = Post
-    template_name = 'blog/home.html'
+    template_name = "blog/home.html"
