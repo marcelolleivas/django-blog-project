@@ -1,6 +1,7 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class PublishedManager(models.Manager):
@@ -25,8 +26,11 @@ class Post(models.Model):
     objects = models.Manager()
     published = PublishedManager()
 
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[self.pk])
+
     class Meta:
         ordering = ("-published_in",)
 
     def __str__(self):
-        return "{} - {}".format(self.slug, self.title)
+        return f'{self.published}-{self.title}'
