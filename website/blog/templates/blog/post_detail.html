@@ -5,5 +5,5 @@
         <h2>{{ object.title }}</h2>
         <p>{{ object.content }}</p>
     </div>
-    <a href="{% url 'post_edit' post.slug %}">+ Editar postagem</a>
+    <a href="{{ object.get_absolute_url_update }}">+ Editar postagem</a>
 {% endblock content %}
