@@ -15,4 +15,10 @@ urlpatterns = [
         views.BlogUpdateView.as_view(),
         name="post_edit",
     ),
+    path(
+        "post/<slug:slug>/delete/",
+        views.BlogDeleteView.as_view(),
+        name="post_delete",
+    ),
+
 ]

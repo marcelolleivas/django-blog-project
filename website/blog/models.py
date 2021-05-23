@@ -32,6 +32,9 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.published}-{self.title}"
 
+    def get_absolute_url_delete(self):
+        return reverse("post_delete", args=[self.slug])
+
     def get_absolute_url_update(self):
         return reverse("post_edit", args=[self.slug])
 
