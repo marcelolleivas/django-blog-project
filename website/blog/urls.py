@@ -10,4 +10,9 @@ urlpatterns = [
         views.BlogDetailsView.as_view(),
         name="post_detail",
     ),
+    path(
+        "post/<slug:slug>/edit/",
+        views.BlogUpdateView.as_view(),
+        name="post_edit",
+    ),
 ]
