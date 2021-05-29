@@ -30,7 +30,7 @@ class Post(models.Model):
         ordering = ("-published_in",)
 
     def __str__(self):
-        return f"{self.published}-{self.title}"
+        return f"{self.title}"
 
     def get_absolute_url_delete(self):
         return reverse("post_delete", args=[self.slug])

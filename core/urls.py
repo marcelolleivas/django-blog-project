@@ -20,5 +20,4 @@ urlpatterns = [
         views.BlogDeleteView.as_view(),
         name="post_delete",
     ),
-
 ]
