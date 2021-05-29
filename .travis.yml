@@ -1,0 +1,17 @@
+language: python
+python:
+  - "3.9"
+
+install:
+  - make setup
+
+jobs:
+  include:
+    - stage: django code convention
+      script:
+        - make code-convention
+    - stage: django test
+      script:
+        - make test
+    on:
+      branch: master
