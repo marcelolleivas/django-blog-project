@@ -10,7 +10,7 @@ setup: .pip
 		poetry install
 
 test:
-		pytest ${PYTEST_CONFIGS}
+		pytest
 
 code-convention:
 		isort .
