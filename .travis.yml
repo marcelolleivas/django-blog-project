@@ -13,4 +13,4 @@ jobs:
       script:
         - make test
       on:
-        branch: ci/cd_settings
+        branch: master
