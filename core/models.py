@@ -1,7 +1,10 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.dispatch import receiver
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.text import slugify
+from django.db.models.signals import post_save
 
 
 class PublishedManager(models.Manager):
@@ -40,3 +43,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("post_detail", args=[self.slug])
+
+
+@receiver(post_save, sender=Post)
+def insert_slug(sender, instance, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.title)
+        return instance.save()
