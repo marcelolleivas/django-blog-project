@@ -1,7 +1,6 @@
 language: python
 python:
   - "3.9"
-
 install:
   - make setup
 
@@ -13,5 +12,5 @@ jobs:
     - stage: django test
       script:
         - make test
-    on:
-      branch: master
+      on:
+        branch: master
